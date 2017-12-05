@@ -27,11 +27,11 @@ namespace Blockchain
             {
                 block.next_block(Blockchain[i]);
                 Blockchain.Add(block);
-                Console.WriteLine("Index: " + Blockchain[i].Index);
-                Console.WriteLine("TimeStamp: " + Blockchain[i].Timestamp);
-                Console.WriteLine("Data: " + Blockchain[i].Data);
-                Console.WriteLine("Previous Hash: " + Blockchain[i].Previous_hash);
-                Console.WriteLine("Hash: " + Blockchain[i].Hash);
+                Console.WriteLine("Index: " + Blockchain[i+1].Index);
+                Console.WriteLine("TimeStamp: " + Blockchain[i + 1].Timestamp);
+                Console.WriteLine("Data: " + Blockchain[i + 1].Data);
+                Console.WriteLine("Previous Hash: " + Blockchain[i + 1].Previous_hash);
+                Console.WriteLine("Hash: " + Blockchain[i + 1].Hash);
                 Console.ReadLine();
             }
 
