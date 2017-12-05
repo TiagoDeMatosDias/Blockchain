@@ -23,7 +23,7 @@ namespace Blockchain
             Console.WriteLine("Hash: " + Blockchain[0].Hash);
             Console.ReadLine();
 
-            for (int i = 0; i > 6; i++)
+            for (int i = 0; i < 6; i++)
             {
                 block.next_block(Blockchain[i]);
                 Blockchain.Add(block);
