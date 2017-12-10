@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 
 namespace Blockchain
 {
-    class Program
+    class Blockchain_block
     {
         static void Main(string[] args)
         {
