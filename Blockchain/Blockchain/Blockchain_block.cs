@@ -13,6 +13,7 @@ namespace Blockchain
         {
             List<Block> Blockchain = new List<Block>();
             Block block = new Block();
+
             block.Genesys();
             Blockchain.Add(block);
                         
@@ -22,6 +23,12 @@ namespace Blockchain
             Console.WriteLine("Previous Hash: " + Blockchain[0].Previous_hash);
             Console.WriteLine("Hash: " + Blockchain[0].Hash);
             Console.ReadLine();
+
+            //next bit writes to the blockchain file while erasing what is there
+
+            string[] genesysblock = {"--------------------------","Index: " + Blockchain[0].Index ,"TimeStamp: " + Blockchain[0].Timestamp,"Data: " + Blockchain[0].Data,"Previous Hash: " + Blockchain[0].Previous_hash,"Hash: " + Blockchain[0].Hash};
+
+            System.IO.File.WriteAllLines(@"D:\OneDrive\programming\Blockchain\Blockchain\Blockchain\Blockchain.txt", genesysblock);
 
             for (int i = 0; i < 10; i++)
             {
@@ -33,6 +40,19 @@ namespace Blockchain
                 Console.WriteLine("Previous Hash: " + Blockchain[i + 1].Previous_hash);
                 Console.WriteLine("Hash: " + Blockchain[i + 1].Hash);
                 Console.ReadLine();
+
+                //Next bit appends the new blocks
+
+                using (System.IO.StreamWriter file =
+            new System.IO.StreamWriter(@"D:\OneDrive\programming\Blockchain\Blockchain\Blockchain\Blockchain.txt", true))
+                {
+                    file.WriteLine("--------------------------");
+                    file.WriteLine("Index: " + Blockchain[i+1].Index);
+                    file.WriteLine("TimeStamp: " + Blockchain[i + 1].Timestamp);
+                    file.WriteLine("Data: " + Blockchain[i + 1].Data);
+                    file.WriteLine("Previous Hash: " + Blockchain[i + 1].Previous_hash);
+                    file.WriteLine("Hash: " + Blockchain[i + 1].Hash);
+                }
             }
 
 

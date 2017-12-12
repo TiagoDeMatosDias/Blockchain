@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Blockchain_server.cs" />
     <Compile Include="Blockchain_block.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
