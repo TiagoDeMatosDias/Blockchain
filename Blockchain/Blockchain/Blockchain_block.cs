@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using System.Windows;
+using System.IO;
 
 namespace Blockchain
 {
@@ -56,6 +58,9 @@ namespace Blockchain
             }
 
 
+            ChainCheck chaincheck = new ChainCheck();
+            bool valid = ChainCheck.check_if_valid(@"D:\OneDrive\programming\Blockchain\Blockchain\Blockchain\Blockchain.txt");
+            Console.ReadLine();
 
         }
 
@@ -131,7 +136,31 @@ namespace Blockchain
     }
 
     
-        
+     class ChainCheck
+    {
+        public static bool check_if_valid(string Blockchain_file)
+        {
+            bool validity = false;
+
+            try
+            {   // Open the text file using a stream reader.
+                using (StreamReader sr = new StreamReader(Blockchain_file))
+                {
+                    // Read the stream to a string, and write the string to the console.
+                    String line = sr.ReadToEnd();
+                    Console.WriteLine(line);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(e.Message);
+            }
+
+
+            return validity;
+        }
+    }   
     
 
 }
